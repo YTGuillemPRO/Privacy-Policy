@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Gh0st Bot</title>
+    <title>Gh0st Bot - Legal Hub</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -14,33 +14,89 @@
             padding: 40px 20px;
         }
         .container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             background-color: #2c2f33;
             padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
         }
         h1 {
             color: #5865F2; /* Discord Blue */
-            border-bottom: 2px solid #36393f;
-            padding-bottom: 10px;
-            font-size: 2.5em;
+            font-size: 2.8em;
+            margin-bottom: 5px;
         }
+        .subtitle {
+            color: #99aab5;
+            font-size: 1.2em;
+        }
+        
+        /* Sistema de Botones de Navegación */
+        .nav-menu {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .nav-btn {
+            background-color: #36393f;
+            color: #ffffff;
+            border: 2px solid transparent;
+            padding: 12px 24px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .nav-btn:hover {
+            background-color: #4f545c;
+        }
+        .nav-btn.active {
+            background-color: #5865F2;
+            border-color: #5865F2;
+        }
+        .nav-btn.invite {
+            background-color: #248046; /* Verde Discord */
+        }
+        .nav-btn.invite:hover {
+            background-color: #1a6535;
+        }
+
+        /* Secciones de Contenido */
+        .content-section {
+            display: none;
+            border-top: 2px solid #36393f;
+            padding-top: 30px;
+            animation: fadeIn 0.3s ease;
+        }
+        .content-section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         h2 {
             color: #ffffff;
             margin-top: 30px;
-            font-size: 1.5em;
+            font-size: 1.6em;
         }
         p, li {
             color: #b9bbbe;
-            font-size: 1.1em;
+            font-size: 1.05em;
         }
         ul {
             padding-left: 20px;
         }
         .footer {
-            margin-top: 40px;
+            margin-top: 50px;
             text-align: center;
             font-size: 0.9em;
             color: #72767d;
@@ -52,40 +108,78 @@
 <body>
 
 <div class="container">
-    <h1>Privacy Policy</h1>
-    <p><strong>Last updated:</strong> June 20, 2026</p>
-    
-    <p>Thank you for adding <strong>Gh0st Bot</strong> to your server. Your privacy is dynamic and very important to us. This Privacy Policy outlines what data we collect, how it is used, and how we protect it.</p>
+    <div class="header">
+        <h1>Gh0st Bot</h1>
+        <p class="subtitle">Official Privacy, Terms, and Distribution Portal</p>
+    </div>
 
-    <h2>1. Data We Collect</h2>
-    <p>By using the bot, certain information provided by the Discord API may be processed temporarily or stored to ensure proper functionality:</p>
-    <ul>
-        <li><strong>User IDs and Usernames:</strong> To track application systems, ticket ownership, logs, or custom moderation features (like bans).</li>
-        <li><strong>Server/Guild IDs:</strong> To save specific configuration settings, permission structures, and custom commands.</li>
-        <li><strong>Message Content:</strong> Only processed reactively when invoking a command (e.g., Slash Commands or specified form submittals). We do not log or store your standard chat history.</li>
-    </ul>
+    <!-- MENÚ INTERACTIVO -->
+    <div class="nav-menu">
+        <button class="nav-btn active" onclick="switchTab('privacy')">Privacy Policy</button>
+        <button class="nav-btn" onclick="switchTab('terms')">Terms of Service</button>
+        <!-- REEMPLAZA EL '#' CON TU LINK DE INVITACIÓN DE BOTGHOST -->
+        <a href="https://dashboard.botghost.com/" target="_blank" style="text-decoration: none;">
+            <button class="nav-btn invite">➕ Invite Bot</button>
+        </a>
+    </div>
 
-    <h2>2. How We Use Data</h2>
-    <p>The data collected is used strictly to provide and improve the bot’s core operations:</p>
-    <ul>
-        <li>Executing moderation commands properly (such as target user lookup for ban commands).</li>
-        <li>Managing access controls and visibility permissions for private ticket channels.</li>
-        <li>Logging moderation actions inside designated channels for server administrators.</li>
-    </ul>
+    <!-- SECCIÓN 1: PRIVACIDAD (Se muestra primero) -->
+    <div id="privacy" class="content-section active">
+        <h2>Privacy Policy</h2>
+        <p><strong>Last updated:</strong> June 20, 2026</p>
+        <p>Thank you for adding <strong>Gh0st Bot</strong> to your server. This policy explains how data is handled:</p>
+        
+        <h3>1. Data Collection</h3>
+        <p>Our application interacts directly with data exposed by the Discord API. We temporarily process or store:</p>
+        <ul>
+            <li><strong>User & Guild IDs:</strong> To identify application ownership, trigger moderation rules, and operate custom command parameters.</li>
+            <li><strong>Form Submissions & Formats:</strong> Data filled through native interactive Modals (like `/apply`) is sent dynamically to designated staff channels.</li>
+        </ul>
 
-    <h2>3. Data Retention and Deletion</h2>
-    <p>We do not keep data longer than necessary. Settings and logs are preserved only as long as the bot remains on your server. If you wish to have all stored data related to your server or user profile manually wiped, please contact the Bot Owner directly via Discord.</p>
+        <h3>2. Data Usage & Protection</h3>
+        <p>Data is strictly utilized for structural performance, custom moderation executions (e.g. tracking targets for the `/ban` sequence), and server management. We do not sell, rent, or distribute individual profile metrics to third parties.</p>
+    </div>
 
-    <h2>4. Third-Party Services</h2>
-    <p>Our bot's platform logic is built using <strong>BotGhost</strong>. Consequently, processing complies entirely with Discord’s Developer Terms of Service and BotGhost’s underlying infrastructure safeguards.</p>
+    <!-- SECCIÓN 2: TÉRMINOS DE SERVICIO -->
+    <div id="terms" class="content-section">
+        <h2>Terms of Service</h2>
+        <p><strong>Last updated:</strong> June 20, 2026</p>
+        <p>By inviting or utilizing <strong>Gh0st Bot</strong>, you explicitly agree to comply with the following operational constraints:</p>
+        
+        <h3>1. Acceptable Use</h3>
+        <p>You agree not to utilize our tools, including custom applications or mod commands, to bypass Discord's global Terms of Service, enforce malicious raids, or harass user bases.</p>
+        
+        <h3>2. Service Availability</h3>
+        <p>Gh0st Bot relies on the external structural hosting framework provided by BotGhost. Outages, feature availability, or runtime delays are bound to system up-times outside our direct codebase control.</p>
 
-    <h2>5. Contact Us</h2>
-    <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please reach out to the development staff inside our support server.</p>
+        <h3>3. Termination</h3>
+        <p>We reserve the complete right to block specific server IDs or users from executing features if systematic abuse is recognized by developers.</p>
+    </div>
 
     <div class="footer">
-        <p>&copy; 2026 Gh0st Bot. All rights reserved. This bot is not affiliated with Discord Inc.</p>
+        <p>&copy; 2026 Gh0st Bot. All rights reserved. Not affiliated with Discord Inc.</p>
     </div>
 </div>
+
+<!-- LÓGICA DE INTERCAMBIO SIN RECARGAR LA PÁGINA -->
+<script>
+    function switchTab(tabId) {
+        // Ocultar todas las secciones
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.classList.remove('active');
+        });
+        // Desactivar todos los botones
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            if(!btn.classList.contains('invite')) {
+                btn.classList.remove('active');
+            }
+        });
+        
+        // Activar la pestaña y el botón seleccionado
+        document.getElementById(tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+</script>
 
 </body>
 </html>
