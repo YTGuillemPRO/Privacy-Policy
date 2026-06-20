@@ -47,7 +47,7 @@
             background-color: #36393f;
             color: #ffffff;
             border: 2px solid transparent;
-            padding: 12px 24px;
+            padding: 12px 30px;
             font-size: 1.1em;
             font-weight: bold;
             border-radius: 6px;
@@ -60,12 +60,6 @@
         .nav-btn.active {
             background-color: #5865F2;
             border-color: #5865F2;
-        }
-        .nav-btn.invite {
-            background-color: #248046; /* Verde Discord */
-        }
-        .nav-btn.invite:hover {
-            background-color: #1a6535;
         }
 
         /* Secciones de Contenido */
@@ -110,20 +104,16 @@
 <div class="container">
     <div class="header">
         <h1>Gh0st Bot</h1>
-        <p class="subtitle">Official Privacy, Terms, and Distribution Portal</p>
+        <p class="subtitle">Official Privacy Policy and Terms of Service Portal</p>
     </div>
 
     <!-- MENÚ INTERACTIVO -->
     <div class="nav-menu">
         <button class="nav-btn active" onclick="switchTab('privacy')">Privacy Policy</button>
         <button class="nav-btn" onclick="switchTab('terms')">Terms of Service</button>
-        <!-- REEMPLAZA EL '#' CON TU LINK DE INVITACIÓN DE BOTGHOST -->
-        <a href="https://dashboard.botghost.com/" target="_blank" style="text-decoration: none;">
-            <button class="nav-btn invite">➕ Invite Bot</button>
-        </a>
     </div>
 
-    <!-- SECCIÓN 1: PRIVACIDAD (Se muestra primero) -->
+    <!-- SECCIÓN 1: PRIVACIDAD -->
     <div id="privacy" class="content-section active">
         <h2>Privacy Policy</h2>
         <p><strong>Last updated:</strong> June 20, 2026</p>
@@ -161,7 +151,7 @@
     </div>
 </div>
 
-<!-- LÓGICA DE INTERCAMBIO SIN RECARGAR LA PÁGINA -->
+<!-- LÓGICA DE INTERCAMBIO -->
 <script>
     function switchTab(tabId) {
         // Ocultar todas las secciones
@@ -170,9 +160,7 @@
         });
         // Desactivar todos los botones
         document.querySelectorAll('.nav-btn').forEach(btn => {
-            if(!btn.classList.contains('invite')) {
-                btn.classList.remove('active');
-            }
+            btn.classList.remove('active');
         });
         
         // Activar la pestaña y el botón seleccionado
